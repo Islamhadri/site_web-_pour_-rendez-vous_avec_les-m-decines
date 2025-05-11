@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clinique Santé+</title>
+  <style>
+    :root {
+      --main-color: #0b8a60;
+      --text-color: #333;
+      --bg-light: #f9f9f9;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: white;
+      color: var(--text-color);
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #0b8a60;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-weight: bold;
+      color: var(--main-color);
+      font-size: 1.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--main-color);
+    }
+
+    .btn-nav {
+      background-color: var(--main-color);
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--main-color);
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    /* Sections */
+    .section {
+      padding: 4rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--bg-light);
+    }
+
+    .section.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .section-content {
+      flex: 1;
+      padding: 1rem 2rem;
+      max-width: 600px;
+    }
+
+    .section-content h2 {
+      color: var(--main-color);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .section img {
+      flex: 1;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn {
+      background-color: var(--main-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    /* Stats */
+    .stats-section {
+      background-color: white;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .stats-section h2 {
+      color: var(--main-color);
+      margin-bottom: 2rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .stat {
+      background: var(--bg-light);
+      border-radius: 10px;
+      padding: 2rem;
+      min-width: 200px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .stat h3 {
+      color: var(--main-color);
+      font-size: 1.5rem;
+    }
+
+    /* Témoignage */
+    .testimonial {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .testimonial p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--main-color);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        display: none; /* pour simplification, menu mobile non inclus */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Santé+</div>
+    <div class="nav-links">
+      <a href="#">Accueil</a>
+      <a href="#">Fonctionnalités</a>
+      <a href="#">Médecins</a>
+      <a href="#">Contact</a>
+    </div>
+    <a href="login.php" class="btn-nav">Se connecter</a>
+    <a href="register.php" class="btn-nav">S' incrire </a>
+
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>Bénéficiez de l'expertise de Santé+</h1>
+    <p>Nos équipes sont là pour vous accompagner avec une plateforme fiable, facile à utiliser, et pensée pour les patients et les praticiens.</p>
+  </header>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <img src="vd.jpg >
+    <div class="section-content">
+      <h2>Il est temps d'utiliser la Vidéo Consultation</h2>
+      <p>Offrez à vos patients la possibilité deffectuer des consultations à distance de manière simple et sécurisée, sans installations compliquées.</p>
+      <a href="#" class="btn">En savoir plus</a>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section reverse">
+    <img src="vd.jpg" alt="Référencement">
+    <div class="section-content">
+      <h2>Profitez d’un référencement de qualité</h2>
+      <p>Rejoignez une communauté de professionnels de santé référencés auprès de milliers de patients à travers notre plateforme.</p>
+    </div>
+  </div>
+
+  <!-- Statistiques -->
+  <div class="stats-section">
+    <h2>Notre impact</h2>
+    <div class="stats">
+      <div class="stat">
+        <h3>+1 Million</h3>
+        <p>Patients</p>
+      </div>
+      <div class="stat">
+        <h3>+7000</h3>
+        <p>Praticiens</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Témoignage -->
+  <div class="testimonial">
+    <p>"Santé+ est une plateforme simple, fluide et professionnelle. Elle ma permis de gagner du temps et de mieux gérer mon emploi du temps avec mes patients."</p>
+    <p>- Dr. Julien Cornil</p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Clinique Santé+ - Tous droits réservés.</p>
+    <p>Besoin d'aide ? <a href="#" style="color: #fff; text-decoration: underline;">Contactez-nous</a></p>
+  </footer>
+
+</body>
+</html>

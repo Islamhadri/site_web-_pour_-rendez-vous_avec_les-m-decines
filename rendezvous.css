@@ -1,0 +1,98 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0b8a60;
+  padding: 1rem 2rem;
+  color: white;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-actions a {
+  margin-left: 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-actions a:hover {
+  text-decoration: underline;
+}
+
+/* Formulaire patient */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2fef6;
+  margin: 0;
+  padding: 0;
+}
+
+.register-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+
+.register-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,128,0,0.1);
+  width: 400px;
+}
+
+.register-box h2 {
+  color: #0b8a60;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.register-box label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.register-box input,
+.register-box select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: #0b8a60;
+  color: white;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #08704f;
+}

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos - Clinique Santé</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #0b8a60;
+      --secondary-color: #2d5bff;
+      --light-bg: rgba(255, 255, 255, 0.95);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f0f8ff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5%;
+      background: rgba(11, 138, 96, 0.95);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .navbar nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+    }
+
+    .navbar nav a.active::after {
+      width: 100%;
+    }
+
+    .navbar nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--secondary-color);
+      transition: width 0.3s ease;
+    }
+
+    .navbar nav a:hover::after {
+      width: 100%;
+    }
+
+    .buttons button {
+      margin-left: 1rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .login {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .register {
+      background: var(--secondary-color);
+      border: 2px solid var(--secondary-color);
+      color: white;
+    }
+
+    /* Suite du CSS précédent... */
+    
+    .about-container {
+      max-width: 1200px;
+      margin: 100px auto 50px;
+      padding: 0 20px;
+    }
+
+    .startup-info {
+      background: var(--light-bg);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-left: 5px solid var(--secondary-color);
+      animation: slideIn 1s ease;
+    }
+
+    .services-section {
+      padding: 4rem 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      animation: borderFlow 6s linear infinite;
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      transform: rotate(360deg);
+    }
+
+    .service-card h3 {
+      color: var(--secondary-color);
+      margin: 1rem 0;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes borderFlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .footer {
+      background: var(--primary-color);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      
+      .navbar nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        margin: 1rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Msantè+</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="#">Nos Services</a></li>
+        <li><a href="about.html" class="active">À propos</a></li>
+        <li><a href="#">Spécialités</a></li>
+        <li><a href="prendre-rdv.html">Rendez-vous</a></li>
+      </ul>
+    </nav>
+    <div class="buttons">
+      <button class="login">Connexion</button>
+      <button class="register">Inscription</button>
+    </div>
+  </header>
+
+  <div class="about-container">
+    <!-- Contenu existant... -->
+  </div>
+
+  <!-- Footer existant... -->
+</body>
+</html>
+
+  <div class="about-container">
+    <div class="startup-info">
+      <h2>À propos de notre projet</h2>
+      <p>Ce projet innovant a été réalisé par <strong>MClick Solution</strong>, une startup algérienne spécialisée dans les solutions digitales médicales. Notre plateforme vise à révolutionner l'accès aux soins de santé en Algérie grâce à une approche technologique moderne et intuitive.</p>
+    </div>
+
+    <div class="services-section">
+      <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">Nos Services en Ligne</h2>
+      
+      <div class="services-grid">
+        <!-- Consultation Vidéo -->
+        <div class="service-card">
+          <i class="fas fa-video service-icon"></i>
+          <h3>Consultation en Direct</h3>
+          <p>Connectez-vous en temps réel avec votre médecin via une vidéoconférence sécurisée</p>
+          <button class="cta-button" style="margin-top: 1rem;">
+            Commencer <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Prise de RDV -->
+        <div class="service-card">
+          <i class="fas fa-calendar-check service-icon"></i>
+          <h3>Rendez-vous Instantané</h3>
+          <p>Prenez rendez-vous en quelques clics avec notre système de réservation intelligent</p>
+          <button class="cta-button" style="margin-top: 1rem;">
+            Réserver <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Historique -->
+        <div class="service-card">
+          <i class="fas fa-history service-icon"></i>
+          <h3>Suivi Médical</h3>
+          <p>Consultez votre historique médical et gardez trace de tous vos diagnostics</p>
+          <button class="cta-button" style="margin-top: 1rem;">
+            Voir l'historique <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer identique à la page précédente -->
+  <footer class="footer">
+    <p>Contactez-nous :</p>
+    <p><i class="fas fa-envelope"></i> contact@mclicksolution.dz</p>
+    <p><i class="fas fa-phone"></i> +213 770 123 457</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
+</body>
+</html>

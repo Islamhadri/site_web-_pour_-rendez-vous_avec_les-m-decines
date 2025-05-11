@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tableau de bord</title>
+  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">DocRDV</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="services.html">Nos Services</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="specialites.html">Spécialités</a></li>
+        <li><a href="prendre-rdv.html">Prendre un rendez-vous</a></li>
+        <li><a href="dashboard.html">Tableau de bord</a></li>
+        <li><a href="logout.html">Déconnexion</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+    <div class="sidebar">
+      <h3>Bienvenue, Dr. Adel</h3>
+      <ul>
+        <li><a href="appointments.html">Mes Rendez-vous</a></li>
+        <li><a href="patients.html">Mes Patients</a></li>
+        <li><a href="profile.html">Mon Profil</a></li>
+        <li><a href="messages.html">Messages</a></li>
+      </ul>
+    </div>
+    
+    <div class="dashboard-content">
+      <h2>Mes Rendez-vous à venir</h2>
+      <div class="appointments-list">
+        <div class="appointment">
+          <h3>Dr. Karim</h3>
+          <p><strong>Date:</strong> 12/12/2025</p>
+          <p><strong>Heure:</strong> 14:30</p>
+          <button class="btn-action">Voir les détails</button>
+        </div>
+        <div class="appointment">
+          <h3>Dr. Farida</h3>
+          <p><strong>Date:</strong> 14/12/2025</p>
+          <p><strong>Heure:</strong> 16:00</p>
+          <button class="btn-action">Voir les détails</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
