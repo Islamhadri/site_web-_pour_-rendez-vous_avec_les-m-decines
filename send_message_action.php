@@ -11,7 +11,7 @@ $user_type = $_SESSION['user_type'];
 $appointment_id = $_POST['appointment_id'];
 $message = $_POST['message'];
 
-// Vérifier l'accès au rendez-vous
+// Vérifier l'accès au rdv bro
 if ($user_type === 'doctor') {
     $stmt = $conn->prepare("SELECT d.id FROM doctors d
                           JOIN appointments a ON a.doctor_id = d.id
