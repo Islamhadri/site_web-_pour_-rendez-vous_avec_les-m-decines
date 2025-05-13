@@ -33,7 +33,6 @@ if ($user_type === 'patient') {
 }
 ?>
 
-<!-- Le reste du code HTML reste inchangé -->
 
 
 <!DOCTYPE html>
