@@ -1,236 +1,444 @@
 :root {
-  --primary-color: #0b8a60;
-  --secondary-color: #2d5bff;
-  --light-bg: rgba(255, 255, 255, 0.95);
-}
+      --main-color: #0b8a60;
+      --secondary-color: #25D366;
+      --gold: #FFD700;
+      --text-color: #2c3e50;
+      --bg-light: #f9f9f9;
+      --white: #ffffff;
+    }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+    /* Reset et polices */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-body {
-  background-image: url('fond.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: #333;
-  line-height: 1.6;
-}
+    body {
+      background-color: var(--white);
+      color: var(--text-color);
+    }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 5%;
-  background: rgba(11, 138, 96, 0.95);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  backdrop-filter: blur(10px);
-}
+    /* Navbar*/
+    .navbar {
+      background-color: var(--white);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      animation: slideDown 0.5s ease-out;
+    }
 
-.logo {
-  color: white;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  transition: transform 0.3s ease;
-}
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--main-color);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+    }
 
-.navbar nav ul {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
+    .logo::after {
+      content: '+';
+      color: var(--secondary-color);
+      font-size: 1.2em;
+      position: absolute;
+      right: -15px;
+      top: -5px;
+    }
 
-.navbar nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
-  padding: 5px 0;
-  transition: color 0.3s ease;
-}
+    .navbar nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
 
-.navbar nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--secondary-color);
-  transition: width 0.3s ease;
-}
+    .navbar nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s;
+      position: relative;
+    }
 
-.buttons button {
-  margin-left: 1rem;
-  padding: 0.8rem 1.5rem;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
+    .navbar nav a:hover {
+      color: var(--main-color);
+      background: rgba(11, 138, 96, 0.1);
+    }
 
-.login {
-  background: transparent;
-  border: 2px solid white;
-  color: white;
-}
+    .buttons button {
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-left: 1rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
 
-.register {
-  background: var(--secondary-color);
-  border: 2px solid var(--secondary-color);
-  color: white;
-}
+    .login {
+      background: var(--bg-light);
+      color: var(--main-color);
+      border: 2px solid var(--main-color);
+    }
 
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: 80px;
-}
+    .register {
+      background: var(--main-color);
+      color: var(--white);
+      border: 2px solid transparent;
+    }
 
-.hero-content h1 {
-  font-size: 3.5rem;
-  color: white;
-  text-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  animation: textFloat 3s ease-in-out infinite;
-}
+    .buttons button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
 
-.top-doctors {
-  padding: 5rem 2rem;
-  background: var(--light-bg);
-}
+    /* Hero Section avec Animation Spéciale */
+    .hero {
+      margin-top: 80px;
+      height: 70vh;
+      background: linear-gradient(135deg, rgba(11, 138, 96, 0.9) 0%, rgba(8, 115, 80, 0.9) 100%),
+                  url('https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-.doctor-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: rotate(45deg);
+      animation: shine 6s infinite;
+    }
 
-.doctor-card {
-  background: white;
-  border-radius: 15px;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
+    .hero-content {
+      text-align: center;
+      color: var(--white);
+      position: relative;
+      z-index: 1;
+    }
 
-.doctor-card img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  border: 3px solid var(--primary-color);
-}
+    .hero-content h1 {
+      font-size: 3.5rem;
+      text-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+      margin-bottom: 1rem;
+      animation: titleScale 1.5s ease-in-out infinite alternate;
+    }
 
-.annotation {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: var(--secondary-color);
-  color: white;
-  padding: 0.5rem;
-  text-align: center;
-  animation: slideIn 0.8s ease;
-}
+    /* Section Médecins avec Étoiles Animées */
+    .top-doctors {
+      padding: 5rem 5%;
+      background: var(--bg-light);
+    }
 
-.cta-section {
-  background: linear-gradient(135deg, var(--light-bg) 0%, #f8f9ff 100%);
-  padding: 5rem 2rem;
-  margin: 4rem 0;
-  position: relative;
-}
+    .top-doctors h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--main-color);
+      position: relative;
+    }
 
-.cta-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-}
+    .top-doctors h2::after {
+      content: '';
+      width: 100px;
+      height: 3px;
+      background: var(--main-color);
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
-.cta-content {
-  flex: 1;
-  padding: 2rem;
-}
+    .doctor-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem 0;
+    }
 
-.cta-image {
-  flex: 1;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-  animation: floatImage 3s ease-in-out infinite;
-}
+    .doctor-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+      border: 2px solid transparent;
+    }
 
-.zoom-text {
-  color: var(--secondary-color);
-  font-weight: 900;
-}
+    .doctor-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+      border-color: var(--main-color);
+    }
 
-.cta-button {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  color: white;
-  padding: 1.2rem 3rem;
-  border: none;
-  border-radius: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+    .doctor-card img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      border: 4px solid var(--main-color);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
 
-.highlight-text {
-  color: var(--secondary-color);
-  font-weight: 800;
-  margin-top: 1.5rem;
-}
+    .stars {
+      color: var(--gold);
+      font-size: 1.2rem;
+      margin: 1rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 3px;
+    }
 
-.footer {
-  background: var(--primary-color);
-  color: white;
-  padding: 3rem 2rem;
-  text-align: center;
-}
+    .stars i {
+      animation: starTwinkle 1.5s infinite;
+    }
 
-/* Animations */
-@keyframes textFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
+    .stars i:nth-child(2) { animation-delay: 0.2s; }
+    .stars i:nth-child(3) { animation-delay: 0.4s; }
+    .stars i:nth-child(4) { animation-delay: 0.6s; }
+    .stars i:nth-child(5) { animation-delay: 0.8s; }
 
-@keyframes floatImage {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
+    .annotation {
+      background: var(--main-color);
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-top: 1rem;
+      transition: all 0.3s;
+    }
 
-@keyframes slideIn {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
+    /* Section CTA */
+    .cta-section {
+      padding: 5rem 5%;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
 
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    padding: 1rem;
-  }
+    .cta-container {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 25px;
+      padding: 3rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
 
-  .hero-content h1 {
-    font-size: 2rem;
-  }
+    .cta-image {
+      width: 50%;
+      border-radius: 20px;
+      border: 4px solid var(--main-color);
+      transition: transform 0.3s;
+    }
 
-  .cta-container {
-    flex-direction: column;
-  }
-}
+    .cta-image:hover {
+      transform: rotate(-2deg) scale(1.03);
+    }
+
+    .zoom-text {
+      color: var(--main-color);
+      font-weight: 700;
+      animation: zoom 1.5s infinite;
+      display: inline-block;
+    }
+
+    .cta-icons {
+      font-size: 2.5rem;
+      margin: 2rem 0;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .cta-icons i {
+      transition: all 0.3s;
+    }
+
+    .cta-icons i:hover {
+      transform: scale(1.2);
+    }
+
+    .cta-button {
+      background: var(--main-color);
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Carte Interactive */
+    .map-section {
+      padding: 5rem 5%;
+      background: var(--bg-light);
+    }
+
+    .map-frame {
+      max-width: 1000px;
+      margin: 0 auto;
+      border: 4px solid var(--main-color);
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .map-frame:hover {
+      transform: scale(1.02);
+    }
+
+    /* Footer Détaillé */
+    .footer {
+      background: var(--main-color);
+      color: var(--white);
+      padding: 4rem 5%;
+      text-align: center;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(90deg, var(--secondary-color), var(--main-color));
+    }
+
+    .footer p {
+      margin: 1rem 0;
+      font-size: 1.1rem;
+    }
+
+    .social-icons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .social-icons a {
+      color: var(--white);
+      font-size: 1.8rem;
+      transition: all 0.3s;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-icons a:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-5px);
+    }
+
+    /* Bouton WhatsApp Animé */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--secondary-color);
+      color: var(--white);
+      padding: 15px 25px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+      animation: pulse 2s infinite;
+      z-index: 1001;
+      transition: all 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      background: #128C7E;
+      transform: scale(1.05) rotate(5deg);
+    }
+
+    /* Animations Personnalisées */
+    @keyframes titleScale {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.05); }
+    }
+
+    @keyframes starTwinkle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.9); }
+    }
+
+    @keyframes shine {
+      0% { transform: rotate(45deg) translateX(-150%); }
+      100% { transform: rotate(45deg) translateX(150%); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes zoom {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .navbar nav ul {
+        display: none;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .cta-container {
+        flex-direction: column;
+        padding: 2rem;
+      }
+
+      .cta-image {
+        width: 100%;
+      }
+
+      .doctor-card img {
+        width: 120px;
+        height: 120px;
+      }
+    }
